@@ -8,11 +8,12 @@ return {
                 enable = true,
             },
             indent = { enable = true },
-            autotage = { enable = true },
+            autotag = { enable = true },
             ensure_installed = {
                 "lua",
                 "tsx",
                 "typescript",
+                "python",
             },
             auto_install = false,
         })
