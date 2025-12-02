@@ -12,15 +12,19 @@ return {
     -- },
     -- lua/plugins/rose-pine.lua
     {
-        "rose-pine/neovim",
-        name = "rose-pine-moon",
+        "neanias/everforest-nvim",
+        name = "everforest-light-med",
         config = function()
-            vim.cmd.colorscheme("rose-pine-moon")
+            require("everforest").setup({
+                background = "medium",
+            })
+            vim.o.background = "light"
+            vim.cmd.colorscheme("everforest")
         end,
     },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = { theme = "rose-pine-moon" },
+        opts = { theme = "everforest" },
     },
 }
