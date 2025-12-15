@@ -114,6 +114,7 @@ return {
                 "ts_ls",
                 "pyright",
                 "tailwindcss",
+                "gopls"
             },
             handlers = {
                 function(server_name)
