@@ -4,15 +4,15 @@
 
 return {
     {
-        "rose-pine/neovim",
-        name = "rose-pine-moon",
+        "datsfilipe/vesper.nvim",
+        name = "vesper",
         config = function()
-            vim.cmd.colorscheme("rose-pine-moon")
+            vim.cmd.colorscheme("vesper")
         end,
     },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = { theme = "rose-pine-moon" },
+        opts = { theme = "vesper" },
     },
 }
