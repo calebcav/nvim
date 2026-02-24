@@ -14,6 +14,7 @@ local function smear_opts()
         particle_damping = 0.1,
         particle_gravity = 50,
         time_interval = 7,
+        cursor_color_insert_mode = smear_cursor_color(),
     }
 end
 

@@ -4,7 +4,5 @@ return {
     },
     { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
     { "wakatime/vim-wakatime", lazy = false },
-    {
-    },
     { "dmmulroy/ts-error-translator.nvim" },
 }
