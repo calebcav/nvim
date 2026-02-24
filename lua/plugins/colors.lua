@@ -1,18 +1,59 @@
--- local function enable_transparency()
---     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- end
+local function is_dark_mode()
+    if vim.fn.has("mac") == 1 then
+        return vim.fn.system("defaults read -g AppleInterfaceStyle 2>/dev/null"):match("Dark") ~= nil
+    end
+
+    return vim.o.background == "dark"
+end
+
+local function apply_system_theme()
+    if is_dark_mode() then
+        vim.cmd.colorscheme("vesper")
+        return "vesper"
+    end
+
+    vim.cmd.colorscheme("catppuccin")
+    return "catppuccin"
+end
 
 return {
     {
         "datsfilipe/vesper.nvim",
         name = "vesper",
-        config = function()
-            vim.cmd.colorscheme("vesper")
+        lazy = false,
+        priority = 1000,
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        lazy = false,
+        priority = 1000,
+        opts = {
+            flavour = "latte",
+        },
+        config = function(_, opts)
+            require("catppuccin").setup(opts)
+
+            local theme = apply_system_theme()
+
+            vim.api.nvim_create_autocmd("FocusGained", {
+                group = vim.api.nvim_create_augroup("SystemThemeSync", { clear = true }),
+                callback = function()
+                    local next_theme = apply_system_theme()
+                    if next_theme ~= theme then
+                        theme = next_theme
+                    end
+                end,
+            })
         end,
     },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = { theme = "vesper" },
+        opts = function()
+            return {
+                theme = is_dark_mode() and "vesper" or "catppuccin",
+            }
+        end,
     },
 }
