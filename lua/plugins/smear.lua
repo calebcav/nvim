@@ -5,6 +5,7 @@ end
 local function smear_opts()
     return {
         cursor_color = smear_cursor_color(),
+        cursor_color_insert_mode = smear_cursor_color(),
         particles_enabled = true,
         particle_spread = 1,
         particles_per_second = 100,

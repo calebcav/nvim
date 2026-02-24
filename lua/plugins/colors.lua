@@ -7,13 +7,7 @@ local function is_dark_mode()
 end
 
 local function apply_system_theme()
-    if is_dark_mode() then
-        vim.cmd.colorscheme("vesper")
-        return "vesper"
-    end
-
-    vim.cmd.colorscheme("catppuccin")
-    return "catppuccin"
+    return is_dark_mode() and "vesper" or "catppuccin"
 end
 
 return {
@@ -35,12 +29,14 @@ return {
             require("catppuccin").setup(opts)
 
             local theme = apply_system_theme()
+            vim.cmd.colorscheme(theme)
 
             vim.api.nvim_create_autocmd("FocusGained", {
                 group = vim.api.nvim_create_augroup("SystemThemeSync", { clear = true }),
                 callback = function()
                     local next_theme = apply_system_theme()
                     if next_theme ~= theme then
+                        vim.cmd.colorscheme(next_theme)
                         theme = next_theme
                     end
                 end,

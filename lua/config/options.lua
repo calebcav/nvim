@@ -6,3 +6,4 @@ vim.opt.tabstop = 2
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.clipboard = 'unnamed'
+vim.opt.termguicolors = true
