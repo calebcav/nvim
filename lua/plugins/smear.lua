@@ -1,5 +1,5 @@
 local function smear_cursor_color()
-    return vim.o.background == "dark" and "#FFFFFF" or "#dc8a78"
+    return vim.g.colors_name == "vesper" and "#FFFFFF" or "#dc8a78"
 end
 
 local function smear_opts()
@@ -31,7 +31,9 @@ return {
             vim.api.nvim_create_autocmd("ColorScheme", {
                 group = group,
                 callback = function()
-                    smear.setup(smear_opts())
+                    vim.schedule(function()
+                        smear.setup(smear_opts())
+                    end)
                 end,
             })
         end,
