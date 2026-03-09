@@ -7,15 +7,18 @@ local function is_dark_mode()
 end
 
 local function apply_system_theme()
-    return is_dark_mode() and "vesper" or "catppuccin"
+    return is_dark_mode() and "rose-pine" or "catppuccin"
 end
 
 return {
     {
-        "datsfilipe/vesper.nvim",
-        name = "vesper",
+        "rose-pine/neovim",
+        name = "rose-pine",
         lazy = false,
         priority = 1000,
+        opts = {
+            variant = "moon",
+        },
     },
     {
         "catppuccin/nvim",
@@ -48,7 +51,7 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = function()
             return {
-                theme = is_dark_mode() and "vesper" or "catppuccin",
+                theme = is_dark_mode() and "rose-pine" or "catppuccin",
             }
         end,
     },
