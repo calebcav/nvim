@@ -112,6 +112,7 @@ return {
                 "lua_ls",
                 "intelephense",
                 "ts_ls",
+                "svelte",
                 "pyright",
                 "tailwindcss",
                 "gopls"
@@ -143,6 +144,7 @@ return {
                     require('lspconfig').tailwindcss.setup({
                         filetypes = {
                             "templ",
+                            "svelte",
                             "typescriptreact",
                             "javascriptreact",
                         },

@@ -2,7 +2,6 @@ return {
     {
         "tpope/vim-fugitive",
     },
-    { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
-    { "wakatime/vim-wakatime", lazy = false },
+    { "windwp/nvim-autopairs",            event = "InsertEnter", config = true },
     { "dmmulroy/ts-error-translator.nvim" },
 }

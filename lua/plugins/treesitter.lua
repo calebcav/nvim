@@ -16,6 +16,7 @@ return {
                 "lua",
                 "tsx",
                 "typescript",
+                "svelte",
                 "python",
                 "go",
             },
